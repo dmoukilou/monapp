@@ -33,20 +33,3 @@ jobs:
         php artisan optimize:clear
         php artisan optimize
         sudo systemctl reload apache2
-
-    - name: Notification email
-      if: always()
-       uses: dawidd6/action-send-mail@v3
-       with:
-         server_address: msg.acsi.cg
-    server_port: 587
-    username: dmoukilou@acsi.cg
-    password: pcx3knj
-    subject: "CI/CD Laravel - Résultat du déploiement"
-    to: votre.email@acsi.cg
-    from: github-actions@acsi.cg
-    body: |
-      Statut : ${{ job.status }}
-
-      Application : monapp
-      Commit : ${{ github.sha }}
