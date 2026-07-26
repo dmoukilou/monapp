@@ -19,6 +19,10 @@ jobs:
         whoami
         php -v
 
+    - name: configure git safe directory
+      run: |
+        git config --global --add safe.directory /var/www/.uat/apps/monapp
+
     - name: Deploy Laravel
       run: |
         cd /var/www/.uat/apps/monapp
